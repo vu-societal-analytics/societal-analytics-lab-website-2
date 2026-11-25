@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="wrap hero">
+  <h1>For social scientists, by <span class="hl">computational social scientists</span></h1>
+  <p class="lead">{{ .Params.lead }}</p>
+</div>
+<div class="wrap">
+  <div class="joined">
+    {{ range (where .Pages "Params.vacancy" "ne" true).ByWeight }}
+    <div class="row svc"><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2><p>{{ .Params.summary }}</p><a class="go" href="{{ .RelPermalink }}">Read more</a></div>
+    {{ end }}
+  </div>
+  {{ partial "vacancy.html" . }}
+</div>
+{{ partial "cta.html" (dict "title" "Not sure which service fits?" "text" "Describe your project or idea and we will tell you how we can help.") }}
+{{ end }}

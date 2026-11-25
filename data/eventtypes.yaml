@@ -1,0 +1,16 @@
+- key: workshop
+  label: Workshop
+  name: R workshops
+  desc: Hands-on R courses, from first steps to machine learning, text analysis and parallel code.
+- key: film
+  label: Film club
+  name: Film club
+  desc: Screenings followed by discussion about technology, data and science in society.
+- key: talk
+  label: Talk
+  name: Talks and symposia
+  desc: Talks and symposia on AI, ethics and the tools we build.
+- key: community
+  label: Community
+  name: Community events
+  desc: Lunches and year-start events to meet other researchers and share what the lab is doing.

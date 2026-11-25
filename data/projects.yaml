@@ -1,0 +1,16 @@
+# Add `stack` (languages, frameworks), `license` and `repo` as you fill them in.
+- name: AmCAT
+  summary: Data validation and text analysis infrastructure for large collections of documents.
+  link: https://amcat4.labs.vu.nl/
+  linklabel: Visit AmCAT
+  stack: ""
+- name: AnnoTinder
+  summary: Fast, focused annotation of text and images, so coding data takes less effort.
+  link: https://annocate.com/
+  linklabel: Visit AnnoTinder
+  stack: ""
+- name: Scripttorium
+  summary: Started as an idea by Rupert Kiddle, and is now part of our projects.
+  link: https://github.com/Rptkiddle/scriptorium
+  linklabel: View on GitHub
+  stack: ""

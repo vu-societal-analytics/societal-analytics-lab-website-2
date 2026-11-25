@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{ $m := printf "mailto:%s" site.Params.email }}
+<div class="wrap hero">
+  <h1>Tell us what you need, or <span class="hl">join the lab</span></h1>
+  <p class="lead">The lab is for researchers of the VU Faculty of Social Sciences, and there is always room for you. Pick the option that fits and we will take it from there.</p>
+</div>
+<div class="wrap banner">
+  <div class="next">
+    <div>
+      <span class="tag">Most popular</span>
+      <h2>Become a lab member</h2>
+      <p>If the lab is relevant to your work, you want us to keep you updated, or you intend to contribute to the community, joining takes a minute.</p>
+      <ul class="perks"><li>Be the first to hear about events</li><li>Get updates on tools and funding calls</li><li>Be part of the community around the lab</li></ul>
+    </div>
+    <div class="side"><a class="btn" href="{{ site.Params.memberForm }}">Fill in the member form</a></div>
+  </div>
+</div>
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>Or choose what you want to do</h2></div>
+    <div class="routes">
+      <div class="route"><h3>Request software or help</h3><p>You have a software need or an idea. Email us and include:</p><ul><li>Your research question</li><li>Your data and its format</li><li>Your deadline</li><li>What you have tried so far</li></ul><a class="act" href="{{ $m }}?subject=Software%20request&body=Research%20question%3A%0AData%20and%20format%3A%0ADeadline%3A%0AWhat%20you%20have%20tried%3A">Email your request</a></div>
+      <div class="route"><h3>Apply for an internship or job</h3><p>Learn research software engineering on tools that researchers use. See what is open now.</p><a class="act" href="{{ "services/internship-opportunities/" | relURL }}">See internships</a></div>
+      <div class="route"><h3>Contribute or collaborate</h3><p>Work on our open source tools, propose a joint project or bring a computational element into a grant proposal.</p><a class="act" href="{{ $m }}?subject=Collaboration">Email about collaborating</a></div>
+      <div class="route"><h3>Suggest an event or a blog topic</h3><p>Is there a workshop, film or guide you would like us to run or write? Tell us what and why.</p><a class="act" href="{{ $m }}?subject=Event%20or%20blog%20suggestion">Send a suggestion</a></div>
+    </div>
+  </div>
+</section>
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head"><h2>Other ways to reach us</h2><p>For anything else, write to the lab at <a href="{{ $m }}">{{ site.Params.email }}</a>.</p></div>
+    <div class="routes">
+      <div class="route"><h3>Email</h3><a class="act" href="{{ $m }}">{{ site.Params.email }}</a></div>
+      <div class="route"><h3>LinkedIn</h3><a class="act" href="{{ site.Params.linkedin }}">Societal Analytics Lab</a></div>
+      <div class="route"><h3>Bluesky</h3><a class="act" href="{{ site.Params.bluesky }}">@societal-analytics.nl</a></div>
+      <div class="route"><h3>GitHub</h3><a class="act" href="{{ site.Params.github }}">vu-societal-analytics</a></div>
+    </div>
+  </div>
+</section>
+{{ end }}

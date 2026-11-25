@@ -1,0 +1,12 @@
+{{ $p := . }}
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="{{ .Site.Home.RelPermalink }}"><i></i>{{ .Site.Params.shortname }}</a>
+    <nav aria-label="Main"><ul>
+      {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL | relURL }}"{{ if eq $p.Section .Identifier }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+      {{ end }}
+    </ul></nav>
+    <a class="btn" href="{{ .Site.Params.memberForm }}">Become a member</a>
+  </div>
+</header>

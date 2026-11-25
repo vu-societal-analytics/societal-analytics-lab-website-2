@@ -1,0 +1,6 @@
+{{ range first 1 (where (where site.RegularPages "Section" "services") "Params.vacancy" true) }}
+<div class="vacancy">
+  <div><strong>{{ .Title }}</strong><span>{{ .Params.summary }}</span></div>
+  <a class="btn" href="{{ .RelPermalink }}">Read the vacancy</a>
+</div>
+{{ end }}

@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="wrap hero">
+  <h1>Meet the <span class="hl">research engineers</span> behind the lab</h1>
+  <p class="lead">We are a group of research engineers who love building meaningful infrastructure.</p>
+  <p class="more">Our backgrounds sit at the intersection of computer science, data science and social science. We enjoy collaborating and making computational resources reachable for social science researchers.</p>
+</div>
+<div class="wrap">
+  <div class="team">
+    {{ range hugo.Data.team.core }}
+    <div class="person">
+      {{ if .image }}<img class="av" src="{{ printf "images/%s" .image | relURL }}" alt="{{ .name }}">{{ else }}<div class="av" aria-hidden="true">{{ .initials }}</div>{{ end }}
+      <h3>{{ .name }}</h3><p class="role">{{ .role }}</p><p class="bio">{{ .bio }}</p>
+      {{ with .link }}<a class="site" href="{{ . }}">Personal page</a>{{ end }}
+    </div>
+    {{ end }}
+  </div>
+  <h2 class="sub">Research interns</h2>
+  <div class="interns">
+    {{ range hugo.Data.team.interns }}<div class="intern"><strong>{{ .name }}</strong><span>Research intern</span></div>{{ end }}
+  </div>
+</div>
+{{ partial "cta.html" (dict "title" "Want to collaborate or contribute?" "text" "Reach out to us. We are always happy to talk about projects, ideas and new people joining.") }}
+{{ end }}

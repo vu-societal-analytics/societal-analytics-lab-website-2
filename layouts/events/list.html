@@ -1,0 +1,59 @@
+{{ define "main" }}
+{{ $all := .Pages.ByDate.Reverse }}
+{{ $upcoming := where $all "Params.upcoming" true }}
+{{ $past := where $all "Params.upcoming" "ne" true }}
+<div class="wrap hero">
+  <h1>Learn, watch and meet: <span class="hl">events</span> for computational social science</h1>
+  <p class="lead">From R workshops to film nights and symposia. Members hear about every event first.</p>
+  <a class="btn" href="{{ site.Params.memberForm }}">Become a member</a>
+</div>
+
+{{ range first 1 $upcoming }}
+<div class="wrap banner">
+  <div class="next">
+    <div><span class="tag">Next up</span><h2>{{ .Title }}</h2><p>{{ .Params.summary }}</p></div>
+    <div class="side"><a class="btn" href="{{ .RelPermalink }}">See dates and details</a><a class="plain" href="{{ site.Params.memberForm }}">Join to get the invitation first</a></div>
+  </div>
+</div>
+{{ end }}
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head"><h2>Four kinds of events</h2><p>Pick the format that suits you. Most are open to VU FSW researchers, and some run in hybrid format.</p></div>
+    <div class="series">
+      {{ range hugo.Data.eventtypes }}
+      <div class="s k-{{ .key }}"><h3>{{ .name }}</h3><p>{{ .desc }}</p><p class="n">{{ len (where $past "Params.type" .key) }} past events</p></div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>Past events</h2><p>Browse what we have run so far.</p></div>
+    <div class="chips" role="group" aria-label="Filter events">
+      <button class="chip" aria-pressed="true" data-f="all">All</button>
+      {{ range hugo.Data.eventtypes }}<button class="chip" aria-pressed="false" data-f="{{ .key }}">{{ .name }}</button>{{ end }}
+    </div>
+    <div id="list">
+      {{ range $past.GroupByDate "2006" }}
+      <div class="year-group">
+        <h3 class="year">{{ .Key }}</h3>
+        <ul class="ev">
+          {{ range .Pages }}
+          {{ $e := . }}
+          <li data-k="{{ .Params.type }}">
+            <span class="kind k-{{ .Params.type }}">{{ range where hugo.Data.eventtypes "key" .Params.type }}{{ .label }}{{ end }}</span>
+            <div><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if .Params.hybrid }}<span class="tagh">hybrid</span>{{ end }}<p>{{ .Params.summary }}</p></div>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ partial "cta.html" (dict "title" "Never miss an event" "text" "Members are always the first to be invited. You can also suggest a workshop or a film you would like us to host.") }}
+{{ end }}
+{{ define "scripts" }}<script src="{{ "js/filter.js" | relURL }}"></script>{{ end }}

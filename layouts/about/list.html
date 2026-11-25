@@ -1,0 +1,78 @@
+{{ define "main" }}
+<div class="wrap hero">
+  <h1>Research software, <span class="hl">built in the open</span>, for computational social science</h1>
+  <p class="lead">The Societal Analytics Lab is the first point of contact for anyone applying computational methods in social science research. We are research engineers who build and maintain the tools those methods depend on.</p>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head"><h2>The engineering problems we work on</h2><p>Social science research produces hard software problems. These are the ones we spend our time on.</p></div>
+    <div class="grid">
+      <div class="item"><h3>Search and storage at scale</h3><p>Indexing and querying large document collections so researchers can validate and explore data quickly.</p></div>
+      <div class="item"><h3>Annotation that is fast and reliable</h3><p>Interfaces for coding text and images that reduce effort and error, and produce data you can trust.</p></div>
+      <div class="item"><h3>Compute for text and image processing</h3><p>GPU-driven pipelines for automatic analysis, made usable for people who are not infrastructure experts.</p></div>
+      <div class="item"><h3>Reproducibility by design</h3><p>Tools and infrastructure that make research transparent, repeatable and shareable.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><h2>Our open source projects</h2><p>Where the code lives, what it runs on and how to contribute.</p></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Project</th><th>What it does</th><th>Stack</th><th>Code</th></tr></thead>
+      <tbody>
+        {{ range hugo.Data.projects }}
+        <tr><td>{{ .name }}</td><td>{{ .summary }}</td><td>{{ with .stack }}{{ . }}{{ else }}<span class="todo">to fill in</span>{{ end }}</td><td><a href="{{ .link }}">{{ .linklabel }}</a></td></tr>
+        {{ end }}
+      </tbody>
+    </table></div>
+    <p class="note">Add the stack, licence and repository for each project in <code>data/projects.yaml</code>, then delete this note from <code>layouts/about/list.html</code>.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head"><h2>Who we build for</h2><p>We fit research to the digital society we live in, and we target two groups of scholars.</p></div>
+    <div class="two">
+      <div class="card"><h3>New to computational methods</h3><p>You are curious how these methods could benefit your research. We offer guidance, training and essential tools. Adding computational elements to a grant often makes it more competitive, and we help you design, write and carry out the proposal.</p></div>
+      <div class="card"><h3>Experienced, but short on resources</h3><p>You already know the methods and lack the tools or infrastructure. We provide them, and build what is missing.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>What we do</h2></div>
+    <div class="grid">
+      {{ range first 3 (where (where site.RegularPages "Section" "services") "Params.vacancy" "ne" true).ByWeight }}
+      <div class="item"><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Params.aboutsummary | default .Params.summary }}</p></div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head"><h2>Objectives</h2></div>
+    <div class="grid">
+      <div class="item dot"><h3>Infrastructure</h3><p>Expand VU research infrastructure.</p></div>
+      <div class="item dot"><h3>Innovation</h3><p>Foster methodological innovation.</p></div>
+      <div class="item dot"><h3>Open science</h3><p>Improve reproducibility and transparency.</p></div>
+      <div class="item dot"><h3>Interdisciplinary teams</h3><p>Grow interdisciplinary research teams.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>Contribute or join us</h2><p>Our team combines computer science, data science and social science. Work with us on real research software.</p></div>
+    <div class="two">
+      <div class="card"><h3>Contribute to our code</h3><p>Open an issue, suggest a feature or send a pull request.</p><ul class="ul"><li>Browse the repositories and open issues</li><li>Read the contribution guidelines</li><li>Propose a feature by emailing the lab</li></ul></div>
+      <div class="card"><h3>Internships and student jobs</h3><p>Learn research software engineering on projects that real researchers use.</p><ul class="ul"><li>Work on a tool from design to release</li><li>Get code review and mentoring from the team</li><li>Leave with public work for your portfolio</li></ul><p style="margin-top:1rem"><a class="btn" href="{{ "services/internship-opportunities/" | relURL }}">See internships</a></p></div>
+    </div>
+  </div>
+</section>
+
+{{ partial "cta.html" (dict "title" "Have a software need or idea?" "text" "Tell us what you are working on. We can build it with you, adapt an existing tool, or help you get started.") }}
+{{ end }}

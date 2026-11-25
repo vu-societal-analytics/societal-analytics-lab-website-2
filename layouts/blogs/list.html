@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{ $posts := .Pages.ByDate.Reverse }}
+<div class="wrap hero">
+  <h1>Practical guides for <span class="hl">doing research with code</span></h1>
+  <p class="lead">{{ .Params.lead }}</p>
+</div>
+{{ range first 1 $posts }}
+<div class="wrap">
+  <div class="next">
+    <div><span class="tag">Latest post</span><h2>{{ .Title }}</h2><p>By {{ .Params.author }}.{{ with .Params.summary }} {{ . }}{{ end }}</p></div>
+    <div class="side"><a class="btn" href="{{ .RelPermalink }}">Read the post</a></div>
+  </div>
+</div>
+{{ end }}
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>All posts</h2></div>
+    <div class="chips" role="group" aria-label="Filter posts">
+      <button class="chip" aria-pressed="true" data-f="all">All posts</button>
+      {{ range hugo.Data.blogcategories }}<button class="chip" aria-pressed="false" data-f="{{ .key }}">{{ .label }}</button>{{ end }}
+    </div>
+    <div class="posts" id="list">
+      {{ range after 1 $posts }}
+      <article class="post" data-k="{{ .Params.category }}">
+        <span class="kind k-{{ .Params.category }}">{{ range where hugo.Data.blogcategories "key" .Params.category }}{{ .label }}{{ end }} · {{ .Date.Format "Jan 2006" }}</span>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+        <span class="by">By {{ .Params.author }}</span>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ partial "cta.html" (dict "title" "Missing a guide?" "text" "Tell us which tool, workflow or piece of infrastructure you would like explained, and we will consider writing it.") }}
+{{ end }}
+{{ define "scripts" }}<script src="{{ "js/filter.js" | relURL }}"></script>{{ end }}

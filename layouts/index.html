@@ -1,0 +1,56 @@
+{{ define "main" }}
+<div class="wrap hero hero--home">
+  <h1>Software that lets social scientists <span class="hl"><small>method</small>ask bigger questions</span>.</h1>
+  <p class="lead">We are research engineers at Vrije Universiteit Amsterdam. We build the tools, infrastructure and knowledge that make computational research practical for social science.</p>
+  <div class="cta">
+    <a class="btn" href="{{ "contact/" | relURL }}">Start a project</a>
+    <a class="btn ghost" href="#projects">See our projects</a>
+  </div>
+</div>
+
+{{ range first 1 (where (where site.RegularPages "Section" "events") "Params.upcoming" true) }}
+<div class="wrap banner">
+  <div class="next">
+    <div><span class="tag">Next event</span><h2>{{ .Title }}</h2><p>{{ .Params.summary }}</p></div>
+    <div class="side"><a class="btn" href="{{ .RelPermalink }}">See details</a><a class="plain" href="{{ site.Params.memberForm }}">Join to get the invitation first</a></div>
+  </div>
+</div>
+{{ end }}
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><h2>Tools we build and maintain</h2><p>Open software for validating, annotating and analysing data, developed together with the researchers who use it.</p></div>
+    <div class="joined">
+      {{ range hugo.Data.projects }}
+      <div class="row"><h3>{{ .name }}</h3><p>{{ .summary }}</p><a class="go" href="{{ .link }}">{{ .linklabel }}</a></div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head"><h2>How we can help</h2><p>Have a software need or a half-formed idea? We will build it with you, or help you get started yourself.</p></div>
+    <div class="grid">
+      {{ range first 4 (where (where site.RegularPages "Section" "services") "Params.vacancy" "ne" true).ByWeight }}
+      <div class="item"><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Params.summary }}</p></div>
+      {{ end }}
+    </div>
+    {{ partial "vacancy.html" . }}
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>What we work towards</h2><p>We develop infrastructure and knowledge so that computational resources are easier to use in social science research.</p></div>
+    <div class="principles">
+      <div class="pr"><h3>Infrastructure</h3><p>Strengthen VU research infrastructure and make it more transparent.</p></div>
+      <div class="pr"><h3>Innovation</h3><p>Foster methodological innovation.</p></div>
+      <div class="pr"><h3>Open science</h3><p>Improve reproducibility and transparency.</p></div>
+      <div class="pr"><h3>Interdisciplinary teams</h3><p>Bring more disciplines into research teams.</p></div>
+    </div>
+  </div>
+</section>
+
+{{ partial "cta.html" (dict "title" "Have a software need or idea?" "text" "Tell us what you are working on. We will help you figure out whether to build it, adapt an existing tool, or get started on your own.") }}
+{{ end }}

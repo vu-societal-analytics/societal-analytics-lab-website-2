@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="wrap">
+  <article class="article">
+    {{ $s := .Section }}
+    {{ if eq $s "events" }}{{ range where hugo.Data.eventtypes "key" .Params.type }}<span class="kind k-{{ .key }}">{{ .label }}</span>{{ end }}
+    {{ else if eq $s "blogs" }}{{ range where hugo.Data.blogcategories "key" .Params.category }}<span class="kind k-{{ .key }}">{{ .label }}</span>{{ end }}{{ end }}
+    <h1>{{ .Title }}</h1>
+    <p class="meta">
+      {{ with .Params.when }}{{ . }}<br>{{ end }}
+      {{ with .Params.author }}By {{ . }}.{{ end }}
+    </p>
+    <div class="body">{{ .Content }}</div>
+    <a class="back" href="{{ (site.GetPage (printf "/%s" $s)).RelPermalink }}">Back to {{ (site.GetPage (printf "/%s" $s)).Title }}</a>
+  </article>
+</div>
+{{ end }}

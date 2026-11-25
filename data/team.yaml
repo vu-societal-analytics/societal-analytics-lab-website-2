@@ -1,0 +1,32 @@
+# image: put a photo in static/images/team/ and set e.g. image: team/name.jpg (initials show otherwise)
+core:
+  - name: Wouter van Atteveldt
+    initials: WA
+    role: Lab director
+    bio: Professor at the department of communication science.
+    link: https://vanatteveldt.com/
+  - name: Kasper Welbers
+    initials: KW
+    role: Lab co-director
+    bio: Associate professor at the department of communication science.
+    link: https://research.vu.nl/en/persons/kasper-welbers
+  - name: Sofia Gil-Clavel
+    initials: SG
+    role: Lab manager and researcher
+    bio: Researcher, research engineer and lab manager at the Societal Analytics Lab.
+    link: https://sofiag1l.github.io/
+  - name: Gabriella Bollici
+    initials: GB
+    role: Lab event co-organizer
+    bio: Co-organizes events at the Societal Analytics Lab.
+    link: https://nl.linkedin.com/in/gabriella-bollici-bab32123b
+  - name: Mahdi Rahimi
+    initials: MR
+    role: Lab research engineer
+    bio: Research engineer at the Societal Analytics Lab.
+    link: https://www.linkedin.com/in/mahdirahimi/
+interns:
+  - name: Muhammad Akbar Rahman
+  - name: Saori Maeda
+  - name: Tao Cai
+  - name: Valex Nacci
