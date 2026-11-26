@@ -27,7 +27,18 @@ core:
     link: https://www.linkedin.com/in/mahdirahimi/
 interns:
   - name: Muhammad Akbar Rahman
-    role: 2026 intern
+    initials: 2026_MAR
+    role: Research Inter
+    link: 
   - name: Saori Maeda
+    initials: 2026_SM
+    role: Research Inter
+    link: 
   - name: Tao Cai
+    initials: 2026_TC
+    role: Research Inter
+    link: 
   - name: Valex Nacci
+    initials: 2026_VN
+    role: Research Inter
+    link: 
