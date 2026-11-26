@@ -19,7 +19,7 @@
     {{ range hugo.Data.team.interns }}
     <div class="intern">
       {{ if .image }}<img class="av" src="{{ printf "images/%s" .image | relURL }}" alt="{{ .name }}">{{ else }}<div class="av" aria-hidden="true">{{ .initials }}</div>{{ end }}
-      <h3>{{ .name }}</h3><p class="role">{{ .role }}</p><p class="bio">{{ .bio }}</p>
+      <h3>{{ .name }}</h3><p class="role">{{ .role }}</p>
       {{ with .link }}<a class="site" href="{{ . }}">Personal page</a>{{ end }}
     </div>
     {{ end }}
