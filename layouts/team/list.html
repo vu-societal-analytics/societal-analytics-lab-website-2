@@ -16,7 +16,11 @@
   </div>
   <h2 class="sub">Research interns</h2>
   <div class="interns">
-    {{ range hugo.Data.team.interns }}<div class="intern"><strong>{{ .name }}</strong><span>Research intern</span></div>{{ end }}
+    {{ range hugo.Data.team.interns }}
+    <div class="intern">
+      <strong>{{ .name }}</strong><span>Research intern</span>
+    </div>
+    {{ end }}
   </div>
 </div>
 {{ partial "cta.html" (dict "title" "Want to collaborate or contribute?" "text" "Reach out to us. We are always happy to talk about projects, ideas and new people joining.") }}
