@@ -1,6 +1,7 @@
 ---
 name: "Tao Cai"
 start_date: 2026-09-01
+end_date: 2026-11-15
 image: "images/team/2026_Tao_Cai.jpg"
 role: "Research Intern"
 linkedinurl: "www.linkedin.com/in/tao-cai-a15a9b201"
