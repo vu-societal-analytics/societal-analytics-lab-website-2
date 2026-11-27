@@ -1,6 +1,6 @@
 ---
 title: "Constrained by computing power? We can help you"
-date: "2024-11-18"
+date: "2025-02-11"
 category: "computing"
 author: "Sofia Gil-Clavel"
 ---
