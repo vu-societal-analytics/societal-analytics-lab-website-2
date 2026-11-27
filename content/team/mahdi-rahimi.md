@@ -5,7 +5,7 @@ image: "images/team/Mahdi.JPG"
 role: "Lab Research Engineer"
 linkedinurl: "https://www.linkedin.com/in/mahdirahimi/"
 promoted: true
-weight: 4
+weight: 5
 ---
 
 Mahdi Rahimi – Lab Research Engineer at the Societal Analytics Lab.

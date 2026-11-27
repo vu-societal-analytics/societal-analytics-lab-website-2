@@ -5,7 +5,7 @@ image: "images/team/Gabriella.jpg"
 role: "Lab Event Co-Organizer"
 linkedinurl: "https://nl.linkedin.com/in/gabriella-bollici-bab32123b"
 promoted: true
-weight: 3
+weight: 4
 ---
 
 Gabriella Bollici – Lab Event Co-Organizer at the Societal Analytics Lab.
