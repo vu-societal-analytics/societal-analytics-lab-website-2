@@ -2,7 +2,7 @@
 title: "Sofia Gil-Clavel"
 date: 2018-12-20T13:44:30+10:00
 image: "images/team/SofiaAlone2.png"
-jobtitle: "Lab Manager/Researcher"
+role: "Lab Manager/Researcher"
 linkedinurl: "https://sofiag1l.github.io/"
 promoted: true
 weight: 3

@@ -1,8 +1,17 @@
 {{ define "main" }}
+{{ $name := .Params.name | default .Title }}
 <div class="wrap hero">
   <p><a href="{{ "team/" | relURL }}">← Back to the team</a></p>
-  <h1>{{ .Title }}</h1>
-  {{ with .Params.role }}<p class="lead">{{ . }}</p>{{ end }}
+  {{ with .Params.image }}
+    <img class="av" src="{{ if hasPrefix . "http" }}{{ . }}{{ else }}{{ printf "images/%s" . | relURL }}{{ end }}" alt="{{ $name }}">
+  {{ end }}
+  <h1>{{ $name }}</h1>
+  <p class="lead">{{ .Params.role }}</p>
+  <p class="more">
+    {{ with .Params.start_date }}Member since {{ .Format "January 2006" }}{{ end }}
+    {{ with .Params.end_date }}· until {{ .Format "January 2006" }}{{ end }}
+  </p>
+  {{ with .Params.linkedinurl }}<p><a class="site" href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a></p>{{ end }}
 </div>
 <div class="wrap">
   <article class="content">
