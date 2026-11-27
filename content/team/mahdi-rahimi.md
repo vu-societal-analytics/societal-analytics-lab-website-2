@@ -1,6 +1,7 @@
 ---
 title: "Mahdi Rahimi"
-date: 2025-05-26T13:44:30+10:00
+start_date: 2026-11-01
+end_date: 2029-10-31
 image: "images/team/Mahdi.JPG"
 role: "Lab Research Engineer"
 linkedinurl: "https://www.linkedin.com/in/mahdirahimi/"

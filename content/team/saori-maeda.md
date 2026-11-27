@@ -1,6 +1,7 @@
 ---
-title: "Saori Maeda"
-date: 2018-12-20T13:44:30+10:00
+name: "Saori Maeda"
+start_date: 2026-09-01
+end_date: 2026-12-31
 image: "images/team/2026_saori_maeda.jpg"
 role: "Research Intern"
 linkedinurl: "https://www.linkedin.com/in/saori-maeda-80b426131/?locale=ja"

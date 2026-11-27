@@ -1,6 +1,7 @@
 ---
-title: "Wouter van Atteveldt"
-date: 2018-11-19T10:47:58+10:00
+name: "Wouter van Atteveldt"
+start_date: 2024-01-01
+end_date: 2050-12-31
 image: "https://vanatteveldt.com/images/wouter_van_atteveldt.png"
 role: "Lab Director"
 linkedinurl: "https://vanatteveldt.com/"

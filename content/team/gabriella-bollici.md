@@ -1,6 +1,7 @@
 ---
-title: "Gabriella Bollici"
-date: 2025-05-26T13:44:30+10:00
+name: "Gabriella Bollici"
+start_date: 2025-04-01
+end_date: 2027-10-31
 image: "images/team/Gabriella.jpg"
 role: "Lab Event Co-Organizer"
 linkedinurl: "https://nl.linkedin.com/in/gabriella-bollici-bab32123b"

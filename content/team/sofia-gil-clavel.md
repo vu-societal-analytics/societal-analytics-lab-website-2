@@ -1,6 +1,7 @@
 ---
-title: "Sofia Gil-Clavel"
-date: 2018-12-20T13:44:30+10:00
+name: "Sofia Gil-Clavel"
+start_date: 2024-11-01
+end_date: 2027-10-31
 image: "images/team/SofiaAlone2.png"
 role: "Lab Manager/Researcher"
 linkedinurl: "https://sofiag1l.github.io/"

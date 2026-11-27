@@ -1,6 +1,7 @@
 ---
-title: "Valex Nacci"
-date: 2018-12-20T13:44:30+10:00
+name: "Valex Nacci"
+start_date: 2026-09-01
+end_date: 2026-11-15
 image: "images/team/2026_valex_nacci.jpeg"
 role: "Research Intern"
 linkedinurl: "https://www.linkedin.com/in/valex-nacci-717536352/"

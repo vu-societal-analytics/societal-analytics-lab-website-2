@@ -1,6 +1,7 @@
 ---
-title: "Muhammad Akbar Rahman"
-date: 2018-12-20T13:44:30+10:00
+name: "Muhammad Akbar Rahman"
+start_date: 2026-10-01
+end_date: 2027-02-28
 image: "images/team/2026_muhammad_akbar_rahman.jpg"
 role: "Research Intern"
 linkedinurl: "https://www.linkedin.com/in/muhammad-akbar-rahman-8951a9127/"
