@@ -1,0 +1,11 @@
+# Steps shown on the home page, in order. Edit titles and details freely.
+# Set highlight: true on at most one step to give it the blue card.
+- title: Validate
+  detail: AmCAT
+- title: Annotate
+  detail: AnnoTinder
+  highlight: true
+- title: Analyse
+  detail: GPU computing
+- title: Share
+  detail: Open science

@@ -1,5 +1,6 @@
 {{ define "main" }}
 <div class="wrap hero hero--home">
+  <p class="eyebrow">From raw data to open results</p>
   <h1>Software that lets social scientists <span class="hl">ask bigger questions</span>.</h1>
   <p class="lead">We are research engineers at <a href="https://vu.nl/nl">Vrije Universiteit Amsterdam</a>. We build the tools, infrastructure and knowledge that make computational research practical for social science.</p>
   <div class="cta">
@@ -7,6 +8,17 @@
     <a class="btn ghost" href="#projects">See our projects</a>
   </div>
 </div>
+
+<section class="pipeline" aria-labelledby="pipeline-title">
+  <div class="wrap">
+    <h2 id="pipeline-title" class="sr-only">How our tools fit into the research process</h2>
+    <ol class="pipe">
+      {{ range $i, $s := hugo.Data.pipeline }}
+      <li class="step{{ if $s.highlight }} on{{ end }}"><span class="num">{{ printf "%02d" (add $i 1) }}</span><h3>{{ $s.title }}</h3><p>{{ $s.detail }}</p></li>
+      {{ end }}
+    </ol>
+  </div>
+</section>
 
 {{ range first 1 (where (where site.RegularPages "Section" "events") "Params.upcoming" true) }}
 <div class="wrap banner">
