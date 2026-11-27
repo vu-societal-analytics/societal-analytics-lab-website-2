@@ -7,9 +7,12 @@
 <div class="wrap">
   <div class="team">
     {{ range hugo.Data.team.core }}
+    {{ $slug := .slug | default (.name | urlize) }}
+    {{ $page := site.GetPage (printf "/team/%s" $slug) }}
     <div class="person">
       {{ if .image }}<img class="av" src="{{ printf "images/%s" .image | relURL }}" alt="{{ .name }}">{{ else }}<div class="av" aria-hidden="true">{{ .initials }}</div>{{ end }}
-      <h3>{{ .name }}</h3><p class="role">{{ .role }}</p><p class="bio">{{ .bio }}</p>
+      <h3>{{ if $page }}<a href="{{ $page.RelPermalink }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</h3>
+      <p class="role">{{ .role }}</p><p class="bio">{{ .bio }}</p>
       {{ with .link }}<a class="site" href="{{ . }}">Personal page</a>{{ end }}
     </div>
     {{ end }}
@@ -17,9 +20,12 @@
   <h2 class="sub">Other active members</h2>
   <div class="interns">
     {{ range hugo.Data.team.interns }}
+    {{ $slug := .slug | default (.name | urlize) }}
+    {{ $page := site.GetPage (printf "/team/%s" $slug) }}
     <div class="intern">
       {{ if .image }}<img class="av" src="{{ printf "images/%s" .image | relURL }}" alt="{{ .name }}">{{ else }}<div class="av" aria-hidden="true">{{ .initials }}</div>{{ end }}
-      <h3>{{ .name }}</h3><p class="role">{{ .role }}</p>
+      <h3>{{ if $page }}<a href="{{ $page.RelPermalink }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</h3>
+      <p class="role">{{ .role }}</p>
       {{ with .link }}<a class="site" href="{{ . }}">Personal page</a>{{ end }}
     </div>
     {{ end }}
