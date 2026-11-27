@@ -1,0 +1,16 @@
+{{ $name := .Params.name | default .Title }}
+{{ $words := split $name " " }}
+{{ $initials := upper (printf "%s%s" (substr (index $words 0) 0 1) (substr (index $words (sub (len $words) 1)) 0 1)) }}
+<div class="intern">
+  {{ with .Params.image }}
+    <img class="av" src="{{ if hasPrefix . "http" }}{{ . }}{{ else }}{{ printf "images/%s" . | relURL }}{{ end }}" alt="{{ $name }}">
+  {{ else }}
+    <div class="av" aria-hidden="true">{{ $initials }}</div>
+  {{ end }}
+  <h3><a href="{{ .RelPermalink }}">{{ $name }}</a></h3>
+  <p class="role">{{ .Params.role }}</p>
+  {{ if and .Params.start_date .Params.end_date (lt .Params.end_date now) }}
+    <p class="years">{{ .Params.start_date.Format "2006" }}–{{ .Params.end_date.Format "2006" }}</p>
+  {{ end }}
+  {{ with .Params.linkedinurl }}<a class="site" href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
+</div>

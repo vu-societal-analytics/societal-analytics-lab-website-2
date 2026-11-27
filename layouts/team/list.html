@@ -1,7 +1,20 @@
 {{ define "main" }}
-{{ $all := .Pages.ByWeight }}
-{{ $core := where $all "Params.promoted" true }}
-{{ $others := complement $core $all }}
+{{ $now := now }}
+{{ $active := slice }}
+{{ $previous := slice }}
+
+{{/* Split into active and previous, keeping weight order */}}
+{{ range .Pages.ByWeight }}
+  {{ if and .Params.end_date (lt .Params.end_date $now) }}
+    {{ $previous = $previous | append . }}
+  {{ else }}
+    {{ $active = $active | append . }}
+  {{ end }}
+{{ end }}
+
+{{ $core := where $active "Params.promoted" true }}
+{{ $others := complement $core $active }}
+{{ $previous = sort $previous "Params.end_date" "desc" }}
 
 <div class="wrap hero">
   <h1>Meet the <span class="hl">research engineers</span> behind the lab</h1>
@@ -30,24 +43,19 @@
     {{ end }}
   </div>
 
+  {{ with $others }}
   <h2 class="sub">Other active members</h2>
   <div class="interns">
-    {{ range $others }}
-    {{ $name := .Params.name | default .Title }}
-    {{ $words := split $name " " }}
-    {{ $initials := upper (printf "%s%s" (substr (index $words 0) 0 1) (substr (index $words (sub (len $words) 1)) 0 1)) }}
-    <div class="intern">
-      {{ with .Params.image }}
-        <img class="av" src="{{ if hasPrefix . "http" }}{{ . }}{{ else }}{{ printf "images/%s" . | relURL }}{{ end }}" alt="{{ $name }}">
-      {{ else }}
-        <div class="av" aria-hidden="true">{{ $initials }}</div>
-      {{ end }}
-      <h3><a href="{{ .RelPermalink }}">{{ $name }}</a></h3>
-      <p class="role">{{ .Params.role }}</p>
-      {{ with .Params.linkedinurl }}<a class="site" href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
-    </div>
-    {{ end }}
+    {{ range . }}{{ partial "member-card.html" . }}{{ end }}
   </div>
+  {{ end }}
+
+  {{ with $previous }}
+  <h2 class="sub">Previous members</h2>
+  <div class="interns">
+    {{ range . }}{{ partial "member-card.html" . }}{{ end }}
+  </div>
+  {{ end }}
 </div>
 
 {{ partial "cta.html" (dict "title" "Want to collaborate or contribute?" "text" "Reach out to us. We are always happy to talk about projects, ideas and new people joining.") }}
