@@ -6,8 +6,6 @@ author: "Sofia Gil-Clavel"
 summary: "A practical guide for researchers and teachers who want to use large language models in R."
 ---
 
-Written by Sofia Gil-Clavel.
-
 -   [Index:](#accessing-large-language-models-for-research-and-for-education-in-r)
     -   [Three core reasons to use LLMs hosted by you or by your institution](#three-core-reasons-to-use-llms-hosted-by-you-or-by-your-institution)
         -   [Honesty](#honesty)
