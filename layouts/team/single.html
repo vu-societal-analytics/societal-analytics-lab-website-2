@@ -8,8 +8,8 @@
   <h1>{{ $name }}</h1>
   <p class="lead">{{ .Params.role }}</p>
   <p class="more">
-    {{ with .Params.start_date }}Member since {{ .Format "January 2006" }}{{ end }}
-    {{ with .Params.end_date }}· until {{ .Format "January 2006" }}{{ end }}
+    {{ with .Params.start_date }}Member since {{ time.Format "January 2006" . }}{{ end }}
+    {{ with .Params.end_date }}· until {{ time.Format "January 2006" . }}{{ end }}
   </p>
   {{ with .Params.linkedinurl }}<p><a class="site" href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a></p>{{ end }}
 </div>

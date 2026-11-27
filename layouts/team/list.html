@@ -1,20 +1,32 @@
 {{ define "main" }}
 {{ $now := now }}
 {{ $active := slice }}
-{{ $previous := slice }}
+{{ $previousItems := slice }}
 
 {{/* Split into active and previous, keeping weight order */}}
 {{ range .Pages.ByWeight }}
-  {{ if and .Params.end_date (lt .Params.end_date $now) }}
-    {{ $previous = $previous | append . }}
-  {{ else }}
-    {{ $active = $active | append . }}
+  {{ $page := . }}
+  {{ $isPrevious := false }}
+  {{ with .Params.end_date }}
+    {{ $end := time.AsTime . }}
+    {{ if lt $end $now }}
+      {{ $isPrevious = true }}
+      {{ $previousItems = $previousItems | append (dict "page" $page "end" $end) }}
+    {{ end }}
   {{ end }}
+  {{ if not $isPrevious }}
+    {{ $active = $active | append $page }}
+  {{ end }}
+{{ end }}
+
+{{/* Most recent leaver first */}}
+{{ $previous := slice }}
+{{ range sort $previousItems "end" "desc" }}
+  {{ $previous = $previous | append .page }}
 {{ end }}
 
 {{ $core := where $active "Params.promoted" true }}
 {{ $others := complement $core $active }}
-{{ $previous = sort $previous "Params.end_date" "desc" }}
 
 <div class="wrap hero">
   <h1>Meet the <span class="hl">research engineers</span> behind the lab</h1>
@@ -36,7 +48,7 @@
       {{ end }}
       <h3><a href="{{ .RelPermalink }}">{{ $name }}</a></h3>
       <p class="role">{{ .Params.role }}</p>
-      {{ with .Params.start_date }}<p class="since">Since {{ .Format "2006" }}</p>{{ end }}
+      {{ with .Params.start_date }}<p class="since">Since {{ time.Format "2006" . }}</p>{{ end }}
       <p class="bio">{{ .Summary | plainify | truncate 160 }}</p>
       {{ with .Params.linkedinurl }}<a class="site" href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
     </div>

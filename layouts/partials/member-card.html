@@ -9,8 +9,11 @@
   {{ end }}
   <h3><a href="{{ .RelPermalink }}">{{ $name }}</a></h3>
   <p class="role">{{ .Params.role }}</p>
-  {{ if and .Params.start_date .Params.end_date (lt .Params.end_date now) }}
-    <p class="years">{{ .Params.start_date.Format "2006" }}–{{ .Params.end_date.Format "2006" }}</p>
+  {{ with .Params.end_date }}
+    {{ $end := time.AsTime . }}
+    {{ if lt $end now }}
+      <p class="years">{{ with $.Params.start_date }}{{ time.Format "2006" . }}–{{ end }}{{ time.Format "2006" $end }}</p>
+    {{ end }}
   {{ end }}
   {{ with .Params.linkedinurl }}<a class="site" href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
 </div>
