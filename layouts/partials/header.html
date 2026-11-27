@@ -1,7 +1,7 @@
 {{ $p := . }}
 <header class="top">
   <div class="wrap bar">
-    <a class="logo" href="/"><img src="static/images/logo.svg" alt=""><span>Brand</span></a>
+    <a class="logo" href="/"><img src="/static/images/logo.svg" alt=""><span>The Societal Analytics Lab</span></a>
     <nav aria-label="Main"><ul>
       {{ range .Site.Menus.main }}
       <li><a href="{{ .URL | relURL }}"{{ if eq $p.Section .Identifier }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
