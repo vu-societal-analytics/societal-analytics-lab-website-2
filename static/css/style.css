@@ -1,14 +1,14 @@
 /* Societal Analytics Lab: shared styles for all pages */
 :root{
   --bg:#f7f5f0;--surface:#fff;--ink:#1b2430;--muted:#5c6672;--line:#e2ddd2;
-  --brand:#0170ad;--brand-ink:#fff;--mark:#c93f1b;--mark-ink:#fff;--teal:#0f8b7d;--violet:#5b4bc4;
+  --brand:#0170ad;--brand-ink:#fff;--mark:#f27a56;--mark-ink:#fff;--teal:#0f8b7d;--violet:#5b4bc4;
   --head:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
   --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){:root{
-  --bg:#12161c;--surface:#1b2028;--ink:#eef1f5;--muted:#a5aeba;--line:#2c333e;
+  --bg:#12161c;--surface:#5c6672;--ink:#eef1f5;--muted:#a5aeba;--line:#2c333e;
   --brand:#5ab4ec;--brand-ink:#12161c;--mark:#f27a56;--mark-ink:#1b2430;--teal:#4fd1c0;--violet:#9a8cf0;color-scheme:dark}}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:border-box}
